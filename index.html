@@ -3,20 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Alex Perna - Engenheiro de Software em formação | DevOps | Backend Developer">
     <title>Alex Perna - Portfolio</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
-
-        :root {
-            --bg: #0a0e14;
-            --surface: #151a23;
-            --accent: #00ff9d;
-            --text: #e6edf3;
-            --text-muted: #8b949e;
-            --border: #30363d;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -24,574 +12,179 @@
         }
 
         body {
-            font-family: 'Space Mono', monospace;
-            background: var(--bg);
-            color: var(--text);
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Grid Background Effect */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 50px 50px;
-            opacity: 0.3;
-            z-index: -1;
-            animation: gridMove 20s linear infinite;
-        }
-
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        /* Glow Effect */
-        .glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 255, 157, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-            top: -300px;
-            left: -300px;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(100px, 100px) scale(1.1); }
+            padding: 20px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 20px;
         }
 
-        /* Header */
         header {
-            padding: 4rem 0;
-            position: relative;
-        }
-
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--surface);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-            margin-bottom: 2rem;
-            font-size: 0.875rem;
-            animation: slideDown 0.6s ease-out;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--accent); }
-            50% { opacity: 0.5; box-shadow: 0 0 0 4px transparent; }
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid #00ff9d;
+            margin-bottom: 40px;
         }
 
         h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            animation: slideUp 0.8s ease-out 0.2s both;
+            font-size: 2.5rem;
+            color: #00ff9d;
+            margin-bottom: 10px;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, var(--accent) 0%, #00d4ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        h2 {
+            color: #00ff9d;
+            margin: 30px 0 15px 0;
+            font-size: 1.8rem;
         }
 
         .subtitle {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            animation: slideUp 0.8s ease-out 0.4s both;
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 20px;
         }
 
         .bio {
+            text-align: center;
             max-width: 600px;
-            font-size: 1.125rem;
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            animation: slideUp 0.8s ease-out 0.6s both;
+            margin: 0 auto;
+            font-size: 1.1rem;
         }
 
-        /* Skills Grid */
-        .section-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        section {
+            margin-bottom: 40px;
         }
 
-        .section-title::before {
-            content: '';
-            width: 4px;
-            height: 2rem;
-            background: var(--accent);
+        ul {
+            list-style: none;
+            padding: 0;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 4rem;
+        li {
+            background: #2a2a2a;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 3px solid #00ff9d;
         }
 
-        .skill-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .skill-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 255, 157, 0.1);
-        }
-
-        .skill-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .skill-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .skill-title {
-            font-family: 'Syne', sans-serif;
-            font-weight: 600;
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-desc {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-        }
-
-        /* Projects */
-        .project-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            border-color: var(--accent);
-            transform: translateX(8px);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-        }
-
-        .project-title {
-            font-family: 'Syne', sans-serif;
-            font-weight: 600;
-            font-size: 1.5rem;
-        }
-
-        .project-link {
-            color: var(--accent);
+        a {
+            color: #00ff9d;
             text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .contact {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            transition: gap 0.3s ease;
-        }
-
-        .project-link:hover {
-            gap: 1rem;
-        }
-
-        .project-desc {
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        .tech-tags {
-            display: flex;
+            gap: 20px;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 0.5rem;
         }
 
-        .tag {
-            background: rgba(0, 255, 157, 0.1);
-            color: var(--accent);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            border: 1px solid rgba(0, 255, 157, 0.2);
+        .contact a {
+            background: #2a2a2a;
+            padding: 15px 30px;
+            border-radius: 5px;
+            border: 1px solid #00ff9d;
         }
 
-        /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 4rem;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
+        .contact a:hover {
+            background: #00ff9d;
+            color: #1a1a1a;
             text-decoration: none;
-            color: var(--text);
-            transition: all 0.3s ease;
         }
 
-        .contact-link:hover {
-            border-color: var(--accent);
-            background: rgba(0, 255, 157, 0.05);
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-        }
-
-        /* Footer */
         footer {
             text-align: center;
-            padding: 2rem 0;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #666;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
+        @media (max-width: 600px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
+            
+            h2 {
+                font-size: 1.5rem;
             }
-        }
-
-        /* Scroll Progress Bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: var(--accent);
-            width: 0%;
-            z-index: 1000;
-            transition: width 0.1s ease;
         }
     </style>
 </head>
 <body>
-    <div class="glow"></div>
-    <div class="progress-bar" id="progressBar"></div>
-
     <div class="container">
-        <!-- Header -->
         <header>
-            <div class="status">
-                <span class="status-dot"></span>
-                <span>Disponível para oportunidades</span>
-            </div>
-            
-            <h1>
-                Olá, eu sou <br>
-                <span class="gradient-text">Alex Perna</span>
-            </h1>
-            
-            <p class="subtitle">Engenheiro de Software em formação | DevOps Enthusiast | Backend Developer</p>
-            
+            <h1>Alex Perna</h1>
+            <p class="subtitle">Engenheiro de Software | DevOps | Backend Developer</p>
             <p class="bio">
-                Em transição de carreira para tecnologia, focado em desenvolvimento backend e DevOps. 
-                Ex-policial militar com forte background em gestão pública, buscando unir disciplina, 
-                liderança e conhecimento técnico para criar soluções impactantes.
+                Em transição de carreira para tecnologia, focado em desenvolvimento backend e DevOps.
+                Buscando unir disciplina e conhecimento técnico para criar soluções impactantes.
             </p>
         </header>
 
-        <!-- Skills -->
         <section>
-            <h2 class="section-title">Stack Tecnológica</h2>
-            
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">🐍</div>
-                    <h3 class="skill-title">Python</h3>
-                    <p class="skill-desc">Backend development, automação e scripts DevOps</p>
-                </div>
+            <h2>💻 Habilidades</h2>
+            <ul>
+                <li><strong>Python</strong> - Backend development e automação</li>
+                <li><strong>Linux</strong> - Administração de sistemas</li>
+                <li><strong>Docker</strong> - Containerização de aplicações</li>
+                <li><strong>AWS</strong> - Cloud computing</li>
+                <li><strong>Git & GitHub</strong> - Versionamento de código</li>
+                <li><strong>FastAPI</strong> - APIs REST</li>
+            </ul>
+        </section>
 
-                <div class="skill-card">
-                    <div class="skill-icon">🐧</div>
-                    <h3 class="skill-title">Linux</h3>
-                    <p class="skill-desc">Administração de sistemas e shell scripting</p>
-                </div>
+        <section>
+            <h2>🚀 Projetos</h2>
+            <ul>
+                <li>
+                    <strong>Infraestrutura como Código</strong><br>
+                    Scripts de automação com Shell Script e Docker
+                </li>
+                <li>
+                    <strong>Labs DevOps AWS</strong><br>
+                    Projetos de CI/CD e CloudFormation
+                </li>
+                <li>
+                    <strong>APIs Backend Python</strong><br>
+                    Aplicações REST com FastAPI e PostgreSQL
+                </li>
+            </ul>
+        </section>
 
-                <div class="skill-card">
-                    <div class="skill-icon">🐳</div>
-                    <h3 class="skill-title">Docker</h3>
-                    <p class="skill-desc">Containerização e deploy de aplicações</p>
-                </div>
+        <section>
+            <h2>🎓 Certificações</h2>
+            <ul>
+                <li>DevOps com AWS - DIO (69h)</li>
+                <li>AWS DevOps Learning Plan (8h)</li>
+                <li>Python Completo - Curso em Vídeo</li>
+                <li>Em progresso: AWS Cloud Practitioner, CCNA</li>
+            </ul>
+        </section>
 
-                <div class="skill-card">
-                    <div class="skill-icon">☁️</div>
-                    <h3 class="skill-title">AWS</h3>
-                    <p class="skill-desc">Cloud computing e infraestrutura como código</p>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🔧</div>
-                    <h3 class="skill-title">Git & GitHub</h3>
-                    <p class="skill-desc">Versionamento e colaboração</p>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">⚡</div>
-                    <h3 class="skill-title">FastAPI</h3>
-                    <p class="skill-desc">APIs REST modernas e eficientes</p>
-                </div>
+        <section>
+            <h2>📬 Contato</h2>
+            <div class="contact">
+                <a href="https://github.com/alexpernaoficial" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/alexpernaoficial" target="_blank">LinkedIn</a>
+                <a href="mailto:alexpernaoficial@gmail.com">Email</a>
             </div>
         </section>
 
-        <!-- Projects -->
-        <section>
-            <h2 class="section-title">Projetos em Destaque</h2>
-            
-            <div class="project-card">
-                <div class="project-header">
-                    <h3 class="project-title">Infraestrutura como Código</h3>
-                    <a href="https://github.com/alexpernaoficial" class="project-link">
-                        Ver no GitHub →
-                    </a>
-                </div>
-                <p class="project-desc">
-                    Scripts de automação e configuração de infraestrutura usando Shell Script e Docker.
-                </p>
-                <div class="tech-tags">
-                    <span class="tag">Linux</span>
-                    <span class="tag">Shell Script</span>
-                    <span class="tag">Docker</span>
-                    <span class="tag">IaC</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <h3 class="project-title">Labs DevOps AWS</h3>
-                    <a href="https://github.com/alexpernaoficial" class="project-link">
-                        Ver no GitHub →
-                    </a>
-                </div>
-                <p class="project-desc">
-                    Projetos práticos de CI/CD, CloudFormation e deployment automatizado na AWS.
-                </p>
-                <div class="tech-tags">
-                    <span class="tag">AWS</span>
-                    <span class="tag">CI/CD</span>
-                    <span class="tag">CloudFormation</span>
-                    <span class="tag">DevOps</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <h3 class="project-title">Aplicações Backend Python</h3>
-                    <a href="https://github.com/alexpernaoficial" class="project-link">
-                        Ver no GitHub →
-                    </a>
-                </div>
-                <p class="project-desc">
-                    APIs REST desenvolvidas com FastAPI e Python, incluindo autenticação e integração com bancos de dados.
-                </p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">FastAPI</span>
-                    <span class="tag">PostgreSQL</span>
-                    <span class="tag">REST API</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Certifications -->
-        <section>
-            <h2 class="section-title">Certificações</h2>
-            
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">🎓</div>
-                    <h3 class="skill-title">DevOps com AWS</h3>
-                    <p class="skill-desc">Jornada DevOps com AWS - DIO (69h)</p>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">☁️</div>
-                    <h3 class="skill-title">AWS DevOps Plan</h3>
-                    <p class="skill-desc">AWS Skill Builder (8h)</p>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🐍</div>
-                    <h3 class="skill-title">Python Completo</h3>
-                    <p class="skill-desc">Curso em Vídeo - Gustavo Guanabara</p>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🎯</div>
-                    <h3 class="skill-title">Em progresso</h3>
-                    <p class="skill-desc">AWS Cloud Practitioner, CCNA Cisco</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section>
-            <h2 class="section-title">Vamos Conversar?</h2>
-            
-            <div class="contact-grid">
-                <a href="https://github.com/alexpernaoficial" class="contact-link" target="_blank">
-                    <span class="contact-icon">💻</span>
-                    <div>
-                        <div>GitHub</div>
-                        <small style="color: var(--text-muted);">@alexpernaoficial</small>
-                    </div>
-                </a>
-
-                <a href="https://linkedin.com/in/alexpernaoficial" class="contact-link" target="_blank">
-                    <span class="contact-icon">💼</span>
-                    <div>
-                        <div>LinkedIn</div>
-                        <small style="color: var(--text-muted);">/alexpernaoficial</small>
-                    </div>
-                </a>
-
-                <a href="mailto:alexpernaoficial@gmail.com" class="contact-link">
-                    <span class="contact-icon">📧</span>
-                    <div>
-                        <div>Email</div>
-                        <small style="color: var(--text-muted);">Entre em contato</small>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Footer -->
         <footer>
-            <p>© 2026 Alex Perna. Desenvolvido com dedicação e código limpo.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.875rem;">
-                Em transição de carreira | Maringá, PR 🇧🇷
-            </p>
+            <p>&copy; 2026 Alex Perna - Maringá, PR 🇧🇷</p>
         </footer>
     </div>
-
-    <script>
-        // Scroll Progress Bar
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-        });
-
-        // Smooth scroll for links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.skill-card, .project-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
