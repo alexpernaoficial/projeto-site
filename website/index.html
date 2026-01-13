@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Perna</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .sobre {
+            text-align: left;
+            margin: 20px 0;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+        }
+
+        .certificados {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .certificados h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .certificados ul {
+            list-style: none;
+        }
+
+        .certificados li {
+            padding: 8px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Alex Perna</h1>
+        <p class="subtitulo">Profissional de TI</p>
+
+        <div class="sobre">
+            <h3>Sobre Mim</h3>
+            <p>Olá! Sou profissional da área de tecnologia, em constante aprendizado e evolução. Busco sempre me atualizar com as melhores práticas do mercado.</p>
+        </div>
+
+        <div class="certificados">
+            <h3>Certificações Recentes</h3>
+            <ul>
+                <li>✅ Fundamentos de Redes para DevOps</li>
+                <li>✅ Suporte Técnico na Prática</li>
+                <li>✅ Engenharia de Software (2026)</li>
+            </ul>
+        </div>
+
+        <button class="btn" onclick="mostrarMensagem()">Clique aqui</button>
+    </div>
+
+    <script>
+        function mostrarMensagem() {
+            alert('Olá! Obrigado por visitar meu site! 😊');
+        }
+    </script>
+</body>
+</html>
